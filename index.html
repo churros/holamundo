@@ -12,20 +12,19 @@ document.addEventListener("deviceready",onDeviceReady,
 false);
 }
 
+
 function alertDismissed() {
-    
+    // do something
 }
 
 navigator.notification.alert(
-    'jasir picate el yoyo!',  // message
+    'You are the winner!',  // message
     alertDismissed,         // callback
     'Game Over',            // title
-    'alert'                  // buttonName
+    'Done'                  // buttonName
 );
 }
-function onDeviceReady() {
-navigator.notification.alert("PhoneGap is ready!");
-}
+
 
 </script>
 
