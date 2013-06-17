@@ -11,9 +11,6 @@ function onBodyLoad() {
 document.addEventListener("deviceready",onDeviceReady,
 false);
 }
-function onDeviceReady() {
-navigator.notification.alert("PhoneGap is ready!");
-}
 
 function alertDismissed() {
     
@@ -25,6 +22,11 @@ navigator.notification.alert(
     'Game Over',            // title
     'alert'                  // buttonName
 );
+}
+function onDeviceReady() {
+navigator.notification.alert("PhoneGap is ready!");
+}
+
 </script>
 
 </head>
