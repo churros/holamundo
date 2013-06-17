@@ -14,6 +14,17 @@ false);
 function onDeviceReady() {
 navigator.notification.alert("PhoneGap is ready!");
 }
+
+function alertDismissed() {
+    
+}
+
+navigator.notification.alert(
+    'jasir picate el yoyo!',  // message
+    alertDismissed,         // callback
+    'Game Over',            // title
+    'alert'                  // buttonName
+);
 </script>
 
 </head>
