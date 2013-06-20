@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html;
 charset=utf-8">
 <meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-<script type="text/javascript" charset="utf-8" src="GitHub/phonegap.js"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
 <script type="text/javascript" charset="utf-8">
 
@@ -19,79 +21,10 @@ function onDeviceReady() {
 
 pictureSource=navigator.camera.PictureSourceType;
 destinationType=navigator.camera.DestinationType;
-//playAudio("file:///Sounds/love_rain.mp3")
+
 
 }
 
-        
-        var my_media = null;
-        var mediaTimer = null;
-
-        function playAudio(src) {
-            if (my_media == null) {
-                // Crea un objeto `Media` desde el argumento
-                my_media = new Media(src, onSuccess, onError);
-            }
-            my_media.play();
-
-            // Actualiza la posición cada segundo
-            if (mediaTimer == null) {
-                mediaTimer = setInterval(function() {
-                    // Obtiene la posición actual
-                    my_media.getCurrentPosition(
-                        // Función 'callback' satisfactoria
-                        function(position) {
-                            if (position > -1) {
-                                setAudioPosition((position) + " seg");
-                            }
-                        },
-                        // Función 'callback' de error
-                        function(e) {
-                            console.log("Error obteniendo posición=" + e);
-                            setAudioPosition("Error: " + e);
-                        }
-                    );
-                }, 1000);
-            }
-        }
-
-        // Pausa la reproducción
-        //
-        function pauseAudio() {
-            if (my_media) {
-                my_media.pause();
-            }
-        }
-
-        // Detiene la reproducción
-        //
-        
-            clearInterval(mediaTimer);{
-            mediaTimer = null;
-        }
-
-        // Función 'callback' onSuccess
-        //
-        function onSuccess() {
-            console.log("playAudio():Audio Correcto");
-        }
-
-        // Función 'callback' onError
-        //
-        function onError(error) {
-            alert('código: ' + error.code + '\n' +
-                  'mensaje: ' + error.message + '\n');
-        }
-
-        // Muestra la posición
-        //
-        function setAudioPosition(position) {
-            document.getElementById('audio_position').innerHTML = position;
-        }
-
-
-
- 
   function onPhotoDataSuccess(imageData) {
       // Descomenta esta linea para ver la imagen codificada en base64
       console.log(imageData);
@@ -166,15 +99,15 @@ destinationType=navigator.camera.DestinationType;
 </script>
 
 </head>
-<body onLoad="onBodyLoad()">
-<h1>HOLA CHURROS</h1>
-<p>Esta es una aplicacion simple de la camara y del reproductor de nuestro celular</p>
+<body onload="onBodyLoad()">
+</p>
 
-</p><button onclick=playAudio('file:///Sounds/love_rain.mp3');>Play</button></p>
-<p><button onclick="pauseAudio();">Pausa</button></p>
-<p id="audio_position"></p>
-<button onClick="capturePhoto();">Capturar foto</button> <br>
-<button onClick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la librería de imágenes</button><br>
+        
+
+<button onclick="capturePhoto();">Capturar foto</button> <br>
+<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la librería de imágenes</button><br>
+<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde el álbum de fotos</button><br>
+   <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
 
 
 
