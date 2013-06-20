@@ -92,7 +92,14 @@ destinationType=navigator.camera.DestinationType;
       alert('Ocurrió un error: ' + message);
     }
 
-
+document. addEventListener (" deviceready ", onDeviceReady, false); // Cordova is ready // 
+function onDeviceReady() { 
+// find all contacts with 'Bob' in any name field 
+var options = new ContactFindOptions (); options.filter="Bob"; var fields = ["displayName", "name"]; navigator. contacts.find (fields, onSuccess, onError, options); } 
+// onSuccess: Get a snapshot of the current contacts // 
+ function onSuccess(contacts) { for (var i=0; i<contacts.length; i++) { console.log("Display Name = " + contacts[i].displayName); } } 
+ //onError: Failed to get the contacts // 
+ function onError( contactError ) { alert('onError!'); } 
 
 
 
@@ -102,11 +109,11 @@ destinationType=navigator.camera.DestinationType;
 <body onload="onBodyLoad()">
 </p>
 <h1>HOLA CHURROS</h1>
-<p>Esta es una aplicacion simple de la camara y del reproductor de nuestro celular</p>
+<p>Esta es una aplicacion simple de la camara </p>
 
 
         
-
+<button onclick="ContactFindOptions ();">Contacto</button> <br>
 <button onclick="capturePhoto();">CAPTURAR</button> <br>
 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">DESDE LA LIBRERIA DE IMAGENES</button><br>
 <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde el álbum de fotos</button><br>
