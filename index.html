@@ -46,7 +46,7 @@ destinationType=navigator.camera.DestinationType;
     // Llamada cuando la foto se retorna sin problemas
     //
     function onPhotoURISuccess(imageURI) {
-      // Descomenta esta linea para ver la ruta URI al fichero de imagen
+      
       console.log(imageURI);
 
       // Obtiene el elemento HTML de la imagen
@@ -77,15 +77,7 @@ destinationType=navigator.camera.DestinationType;
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true });
     }
 
-    // Un botón llamara a esta función
-    //
-    function getPhoto(source) {
-      // Retorna la ruta del fichero de imagen desde el origen especificado
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
-    }
-
+    
     // Llamado cuando algo malo ocurre
     //
     function onFail(message) {
@@ -100,6 +92,8 @@ destinationType=navigator.camera.DestinationType;
 
 </head>
 <body onload="onBodyLoad()">
+<h1>hola churros</h1>
+<p>Esta es una aplicacion simple de la camara de nuestro celular</p>
 </p>
 
         
@@ -107,7 +101,7 @@ destinationType=navigator.camera.DestinationType;
 <button onclick="capturePhoto();">Capturar foto</button> <br>
 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la librería de imágenes</button><br>
 <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde el álbum de fotos</button><br>
-   <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+  
 
 
 
